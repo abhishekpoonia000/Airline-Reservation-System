@@ -58,28 +58,3 @@ public class ReservationSystem {
             JOptionPane.showMessageDialog(null, "Flight not found.");
         }
     }
-
-    private void cancelBooking() {
-        String flightNumber = JOptionPane.showInputDialog("Enter flight number:");
-        Flight flight = findFlight(flightNumber);
-        if (flight != null) {
-            String bookingId = JOptionPane.showInputDialog("Enter booking ID:");
-            if (flight.cancelBooking(bookingId)) {
-                JOptionPane.showMessageDialog(null, "Booking canceled successfully.");
-            } else {
-                JOptionPane.showMessageDialog(null, "Booking ID not found.");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Flight not found.");
-        }
-    }
-
-    private Flight findFlight(String flightNumber) {
-        for (Flight flight : flights) {
-            if (flight.getFlightNumber().equals(flightNumber)) {
-                return flight;
-            }
-        }
-        return null;
-    }
-}
