@@ -1,4 +1,4 @@
-package com.airline;
+package airline;
 
 import java.util.UUID;
 

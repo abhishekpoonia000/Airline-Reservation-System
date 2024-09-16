@@ -1,0 +1,37 @@
+package airline;
+
+import java.util.Scanner;
+
+public class AdminHomePage {
+
+    public static void adminMenu() {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("===== Admin Dashboard =====");
+        System.out.println("1. Add Flights");
+        System.out.println("2. Add Airline Employee");
+        System.out.println("3. Cancel Flight");
+        System.out.println("4. Logout");
+        System.out.print("Choose an option: ");
+        int choice = scanner.nextInt();
+        
+        switch (choice) {
+            case 1:
+                AddFlights.addFlight();
+                break;
+            case 2:
+                AddAirlineEmployee.addEmployee();
+                break;
+            case 3:
+                CancelFlight.cancelFlight();
+                break;
+            case 4:
+                System.out.println("Logged out successfully.");
+                break;
+            default:
+                System.out.println("Invalid option. Please try again.");
+                adminMenu();
+                break;
+        }
+    }
+}

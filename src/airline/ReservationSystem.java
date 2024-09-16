@@ -1,85 +1,42 @@
-package com.airline;
+package airline;
 
-import javax.swing.JOptionPane;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReservationSystem {
-    private Flight[] flights;
-    private Scanner scanner;
+    private List<Flight> flights;
+    private List<AddAirlineEmployee> employees;
 
     public ReservationSystem() {
-        flights = new Flight[] {
-                new Flight("AI101", "New York", "Los Angeles", 100),
-                new Flight("AI102", "Chicago", "Miami", 80)
-        };
-        scanner = new Scanner(System.in);
+        flights = new ArrayList<>();
+        employees = new ArrayList<>();
     }
 
-    public void start() {
-        while (true) {
-            String menu = "1. View Flights\n2. Book a Flight\n3. Cancel a Booking\n4. Exit";
-            String choice = JOptionPane.showInputDialog(menu);
-            switch (choice) {
-                case "1":
-                    viewFlights();
-                    break;
-                case "2":
-                    bookFlight();
-                    break;
-                case "3":
-                    cancelBooking();
-                    break;
-                case "4":
-                    System.exit(0);
-                default:
-                    JOptionPane.showMessageDialog(null, "Invalid choice, please try again.");
-            }
-        }
+    public void addFlight(Flight flight) {
+        flights.add(flight);
     }
 
-    private void viewFlights() {
-        StringBuilder flightList = new StringBuilder();
-        for (Flight flight : flights) {
-            flightList.append(flight.toString()).append("\n");
-        }
-        JOptionPane.showMessageDialog(null, flightList.toString());
+    public void addEmployee(AddAirlineEmployee employee) {
+        employees.add(employee);
     }
 
-    private void bookFlight() {
-        String flightNumber = JOptionPane.showInputDialog("Enter flight number:");
-        Flight flight = findFlight(flightNumber);
-        if (flight != null) {
-            String name = JOptionPane.showInputDialog("Enter passenger name:");
-            String email = JOptionPane.showInputDialog("Enter passenger email:");
-            Passenger passenger = new Passenger(name, email);
-            Booking booking = flight.book(passenger);
-            JOptionPane.showMessageDialog(null, "Booking successful! Booking ID: " + booking.getId());
+    public void displayFlights() {
+        if (flights.isEmpty()) {
+            System.out.println("No flights available.");
         } else {
-            JOptionPane.showMessageDialog(null, "Flight not found.");
+            for (Flight flight : flights) {
+                System.out.println(flight);
+            }
         }
     }
 
-    private void cancelBooking() {
-        String flightNumber = JOptionPane.showInputDialog("Enter flight number:");
-        Flight flight = findFlight(flightNumber);
-        if (flight != null) {
-            String bookingId = JOptionPane.showInputDialog("Enter booking ID:");
-            if (flight.cancelBooking(bookingId)) {
-                JOptionPane.showMessageDialog(null, "Booking canceled successfully.");
-            } else {
-                JOptionPane.showMessageDialog(null, "Booking ID not found.");
-            }
+    public void displayEmployees() {
+        if (employees.isEmpty()) {
+            System.out.println("No employees available.");
         } else {
-            JOptionPane.showMessageDialog(null, "Flight not found.");
-        }
-    }
-
-    private Flight findFlight(String flightNumber) {
-        for (Flight flight : flights) {
-            if (flight.getFlightNumber().equals(flightNumber)) {
-                return flight;
+            for (AddAirlineEmployee employee : employees) {
+                System.out.println(employee);
             }
         }
-        return null;
     }
 }

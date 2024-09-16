@@ -1,43 +1,35 @@
-package com.airline;
+package airline;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 public class Flight {
-    private String flightNumber;
-    private String origin;
-    private String destination;
-    private int capacity;
-    private List<Booking> bookings;
+    private ReservationSystem reservationSystem;
 
-    public Flight(String flightNumber, String origin, String destination, int capacity) {
-        this.flightNumber = flightNumber;
-        this.origin = origin;
-        this.destination = destination;
-        this.capacity = capacity;
-        this.bookings = new ArrayList<>();
+    public Flight(ReservationSystem reservationSystem) {
+        this.reservationSystem = reservationSystem;
     }
 
-    public String getFlightNumber() {
-        return flightNumber;
-    }
+    public void addNewFlight() {
+        Scanner scanner = new Scanner(System.in);
 
-    public Booking book(Passenger passenger) {
-        if (bookings.size() < capacity) {
-            Booking booking = new Booking(passenger, this);
-            bookings.add(booking);
-            return booking;
-        } else {
-            throw new RuntimeException("Flight is fully booked.");
-        }
-    }
+        System.out.println("Enter Flight Number:");
+        String flightNumber = scanner.nextLine();
 
-    public boolean cancelBooking(String bookingId) {
-        return bookings.removeIf(booking -> booking.getId().equals(bookingId));
-    }
+        System.out.println("Enter Origin:");
+        String origin = scanner.nextLine();
 
-    @Override
-    public String toString() {
-        return flightNumber + " (" + origin + " -> " + destination + ") Capacity: " + capacity;
+        System.out.println("Enter Destination:");
+        String destination = scanner.nextLine();
+
+        System.out.println("Enter Number of Available Seats:");
+        int seatsAvailable = scanner.nextInt();
+
+        // Create new flight object
+        Flight newFlight = new Flight(flightNumber, origin, destination, seatsAvailable);
+
+        // Add flight to reservation system
+        reservationSystem.addFlight(newFlight);
+
+        System.out.println("Flight added successfully.");
     }
 }

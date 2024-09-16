@@ -1,4 +1,4 @@
-package com.airline;
+package airline;
 
 public class AddAirlineEmployee {
     private String employeeID;
@@ -22,3 +22,21 @@ public class AddAirlineEmployee {
     public String getEmployeeName() {
         return employeeName;
     }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee ID: " + employeeID + ", Name: " + employeeName + ", Role: " + role;
+    }
+}
