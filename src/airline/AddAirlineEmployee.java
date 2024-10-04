@@ -1,42 +1,24 @@
 package airline;
 
-public class AddAirlineEmployee {
-    private String employeeID;
-    private String employeeName;
-    private String role;
+public class AddAirlineEmployee extends Employee {
+    private String position;
 
-    public AddAirlineEmployee(String employeeID, String employeeName, String role) {
-        this.employeeID = employeeID;
-        this.employeeName = employeeName;
-        this.role = role;
+    public AddAirlineEmployee(String name, String email, String position) {
+        super(name, email); // Call to the superclass constructor
+        this.position = position;
     }
 
-    public String getEmployeeID() {
-        return employeeID;
+    // Getters and Setters for position
+    public String getPosition() {
+        return position;
     }
 
-    public void setEmployeeID(String employeeID) {
-        this.employeeID = employeeID;
-    }
-
-    public String getEmployeeName() {
-        return employeeName;
-    }
-
-    public void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     @Override
     public String toString() {
-        return "Employee ID: " + employeeID + ", Name: " + employeeName + ", Role: " + role;
+        return super.toString() + ", Position: " + position; // Include position in the string representation
     }
 }

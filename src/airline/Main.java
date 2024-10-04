@@ -8,14 +8,23 @@ public class Main {
         Flight addFlights = new Flight(reservationSystem);
 
         Scanner scanner = new Scanner(System.in);
+
         while (true) {
-            System.out.println("Airline Reservation System");
+            System.out.println("\nAirline Reservation System");
             System.out.println("1. Add Airline Employee");
             System.out.println("2. Add Flight");
             System.out.println("3. Display Flights");
             System.out.println("4. Display Employees");
             System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
+
+            // Ensure valid integer input
+            if (!scanner.hasNextInt()) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                scanner.next(); // clear invalid input
+                continue;
+            }
+
             int choice = scanner.nextInt();
             scanner.nextLine(); // consume newline
 
@@ -47,6 +56,7 @@ public class Main {
 
                 case 5:
                     System.out.println("Exiting system.");
+                    scanner.close();
                     return;
 
                 default:

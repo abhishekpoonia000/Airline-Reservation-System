@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ReservationSystem {
     private List<Flight> flights;
-    private List<AddAirlineEmployee> employees;
+    private List<Employee> employees; // Assuming Employee class exists
 
     public ReservationSystem() {
         flights = new ArrayList<>();
@@ -14,18 +14,21 @@ public class ReservationSystem {
 
     public void addFlight(Flight flight) {
         flights.add(flight);
+        System.out.println("Flight " + flight.getFlightNumber() + " added successfully.");
     }
 
-    public void addEmployee(AddAirlineEmployee employee) {
+    public void addEmployee(Employee employee) {
         employees.add(employee);
+        System.out.println("Employee " + employee.getName() + " added successfully.");
     }
 
     public void displayFlights() {
         if (flights.isEmpty()) {
             System.out.println("No flights available.");
         } else {
+            System.out.println("Available Flights:");
             for (Flight flight : flights) {
-                System.out.println(flight);
+                System.out.println(flight); // Ensure Flight class has a meaningful toString()
             }
         }
     }
@@ -34,8 +37,9 @@ public class ReservationSystem {
         if (employees.isEmpty()) {
             System.out.println("No employees available.");
         } else {
-            for (AddAirlineEmployee employee : employees) {
-                System.out.println(employee);
+            System.out.println("Employees:");
+            for (Employee employee : employees) {
+                System.out.println(employee); // Ensure Employee class has a meaningful toString()
             }
         }
     }

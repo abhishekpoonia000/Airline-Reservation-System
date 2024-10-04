@@ -1,35 +1,60 @@
 package airline;
 
-import java.util.Scanner;
-
 public class Flight {
-    private ReservationSystem reservationSystem;
+    private String flightNumber;
+    private String destination;
+    private String departureTime;
+    private String arrivalTime;
 
-    public Flight(ReservationSystem reservationSystem) {
-        this.reservationSystem = reservationSystem;
+    // Constructor for the Flight class
+    public Flight(String flightNumber, String destination, String departureTime, String arrivalTime) {
+        this.flightNumber = flightNumber;
+        this.destination = destination;
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
     }
 
-    public void addNewFlight() {
-        Scanner scanner = new Scanner(System.in);
+    // Getters
+    public String getFlightNumber() {
+        return flightNumber;
+    }
 
-        System.out.println("Enter Flight Number:");
-        String flightNumber = scanner.nextLine();
+    public String getDestination() {
+        return destination;
+    }
 
-        System.out.println("Enter Origin:");
-        String origin = scanner.nextLine();
+    public String getDepartureTime() {
+        return departureTime;
+    }
 
-        System.out.println("Enter Destination:");
-        String destination = scanner.nextLine();
+    public String getArrivalTime() {
+        return arrivalTime;
+    }
 
-        System.out.println("Enter Number of Available Seats:");
-        int seatsAvailable = scanner.nextInt();
+    // Setters
+    public void setFlightNumber(String flightNumber) {
+        this.flightNumber = flightNumber;
+    }
 
-        // Create new flight object
-        Flight newFlight = new Flight(flightNumber, origin, destination, seatsAvailable);
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
 
-        // Add flight to reservation system
-        reservationSystem.addFlight(newFlight);
+    public void setDepartureTime(String departureTime) {
+        this.departureTime = departureTime;
+    }
 
-        System.out.println("Flight added successfully.");
+    public void setArrivalTime(String arrivalTime) {
+        this.arrivalTime = arrivalTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "flightNumber='" + flightNumber + '\'' +
+                ", destination='" + destination + '\'' +
+                ", departureTime='" + departureTime + '\'' +
+                ", arrivalTime='" + arrivalTime + '\'' +
+                '}';
     }
 }
