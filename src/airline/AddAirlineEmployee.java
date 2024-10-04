@@ -4,11 +4,10 @@ public class AddAirlineEmployee extends Employee {
     private String position;
 
     public AddAirlineEmployee(String name, String email, String position) {
-        super(name, email); // Call to the superclass constructor
+        super(name, email);
         this.position = position;
     }
 
-    // Getters and Setters for position
     public String getPosition() {
         return position;
     }
@@ -19,6 +18,6 @@ public class AddAirlineEmployee extends Employee {
 
     @Override
     public String toString() {
-        return super.toString() + ", Position: " + position; // Include position in the string representation
+        return super.toString() + ", Position: " + position;
     }
 }

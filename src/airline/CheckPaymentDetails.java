@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class CheckPaymentDetails {
 
-    public static void checkPayment(Scanner scanner) { // Accept Scanner instance as a parameter
+    public static void checkPayment(Scanner scanner) {
         System.out.println("===== Check Payment Details =====");
         System.out.print("Enter Booking ID: ");
         String bookingID = scanner.nextLine();
@@ -18,7 +18,6 @@ public class CheckPaymentDetails {
         String username = "root";
         String password = "password";
 
-        // Using try-with-resources to ensure the connection and statement are closed
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             String sql = "SELECT * FROM payments WHERE bookingID = ?";
             try (PreparedStatement statement = connection.prepareStatement(sql)) {

@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class AddPassengerDetails {
 
     public static void addPassenger() {
-        // Using try-with-resources for the Scanner
+
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("===== Add Passenger Details =====");
             System.out.print("Enter Passenger Name: ");

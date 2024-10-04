@@ -33,7 +33,7 @@ public class HomePage {
                     break;
             }
         } finally {
-            scanner.close(); // Ensure the Scanner is closed to prevent resource leak
+            scanner.close();
         }
     }
 }

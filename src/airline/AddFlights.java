@@ -37,7 +37,7 @@ public class AddFlights {
                 e.printStackTrace();
             }
         } finally {
-            scanner.close(); // Close the Scanner here
+            scanner.close();
         }
     }
 }

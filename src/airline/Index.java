@@ -35,7 +35,7 @@ public class Index {
                 }
             }
         } finally {
-            scanner.close(); // Close the Scanner here
+            scanner.close();
         }
     }
 }

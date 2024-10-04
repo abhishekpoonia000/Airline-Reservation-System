@@ -18,15 +18,14 @@ public class Main {
             System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
 
-            // Ensure valid integer input
             if (!scanner.hasNextInt()) {
                 System.out.println("Invalid input. Please enter a valid number.");
-                scanner.next(); // clear invalid input
+                scanner.next();
                 continue;
             }
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:

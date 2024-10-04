@@ -6,7 +6,6 @@ public class Flight {
     private String departureTime;
     private String arrivalTime;
 
-    // Constructor for the Flight class
     public Flight(String flightNumber, String destination, String departureTime, String arrivalTime) {
         this.flightNumber = flightNumber;
         this.destination = destination;
@@ -14,7 +13,6 @@ public class Flight {
         this.arrivalTime = arrivalTime;
     }
 
-    // Getters
     public String getFlightNumber() {
         return flightNumber;
     }

@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class BookFlight {
 
     public static void bookFlight() {
-        // Using try-with-resources for the Scanner
+
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("===== Book Flight =====");
             System.out.print("Enter Passenger Name: ");
@@ -34,6 +34,6 @@ public class BookFlight {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        } // Scanner is closed automatically here
+        }
     }
 }
