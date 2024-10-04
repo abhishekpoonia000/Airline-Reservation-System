@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         ReservationSystem reservationSystem = new ReservationSystem();
-        Flight addFlights = new Flight(reservationSystem);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -18,15 +17,14 @@ public class Main {
             System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
 
-            // Ensure valid integer input
             if (!scanner.hasNextInt()) {
                 System.out.println("Invalid input. Please enter a valid number.");
-                scanner.next(); // clear invalid input
+                scanner.next();
                 continue;
             }
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -43,7 +41,18 @@ public class Main {
                     break;
 
                 case 2:
-                    addFlights.addNewFlight();
+                    System.out.println("Enter Flight Number:");
+                    String flightNumber = scanner.nextLine();
+                    System.out.println("Enter Destination:");
+                    String destination = scanner.nextLine();
+                    System.out.println("Enter Departure Time:");
+                    String departureTime = scanner.nextLine();
+                    System.out.println("Enter Arrival Time:");
+                    String arrivalTime = scanner.nextLine();
+
+                    Flight flight = new Flight(flightNumber, destination, departureTime, arrivalTime);
+                    reservationSystem.addFlight(flight);
+                    System.out.println("Flight added successfully.");
                     break;
 
                 case 3:

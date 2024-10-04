@@ -19,6 +19,6 @@ public class ConnectionClass {
             e.printStackTrace();
         }
 
-        return connection; // Return the connection (null if unsuccessful)
+        return connection;
     }
 }

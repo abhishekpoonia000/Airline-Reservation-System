@@ -9,7 +9,7 @@ public class Passenger {
 
     public Passenger(String name, String email) {
         this.name = name;
-        setEmail(email); // Use setter for validation
+        setEmail(email);
     }
 
     public String getName() {
@@ -32,7 +32,6 @@ public class Passenger {
         }
     }
 
-    // Validate email format using regex
     private boolean isValidEmail(String email) {
         String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
         Pattern pattern = Pattern.compile(emailRegex);

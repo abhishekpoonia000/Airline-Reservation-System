@@ -9,7 +9,6 @@ public class Employee {
         this.email = email;
     }
 
-    // Getters and Setters
     public String getName() {
         return name;
     }

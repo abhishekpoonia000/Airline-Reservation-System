@@ -1,6 +1,7 @@
 package airline;
 
 import java.util.Scanner;
+ 
 
 public class Index {
 
@@ -18,7 +19,7 @@ public class Index {
 
                 switch (option) {
                     case 1:
-                        if (AdminLoginPage.adminLogin()) {
+                        if (AdminLogin.adminLogin()) {
                             AdminHomePage.displayAdminMenu();
                         }
                         break;
@@ -35,7 +36,7 @@ public class Index {
                 }
             }
         } finally {
-            scanner.close(); // Close the Scanner here
+            scanner.close();
         }
     }
 }

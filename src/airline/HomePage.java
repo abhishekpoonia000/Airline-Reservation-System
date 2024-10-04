@@ -3,37 +3,43 @@ package airline;
 import java.util.Scanner;
 
 public class HomePage {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in); // Initialize the Scanner
+
+    public static void displayUserMenu() {
+        Scanner scanner = new Scanner(System.in);
+
         try {
-            System.out.println("===== Airline Reservation System =====");
-            System.out.println("1. Book Flight");
-            System.out.println("2. View Flights");
-            System.out.println("3. Cancel Flight");
-            System.out.println("4. Exit");
+            while (true) {
+                System.out.println("===== User Menu =====");
+                System.out.println("1. View Flights");
+                System.out.println("2. Book Flight");
+                System.out.println("3. Cancel Flight");
+                System.out.println("4. View Booked Flights");
+                System.out.println("5. Exit");
+                System.out.print("Select an option: ");
+                int option = scanner.nextInt();
 
-            System.out.print("Choose an option: ");
-            int option = scanner.nextInt();
-
-            switch (option) {
-                case 1:
-                    // Code to book flight
-                    break;
-                case 2:
-                    // Code to view flights
-                    break;
-                case 3:
-                    CancelFlight.cancelFlight();
-                    break;
-                case 4:
-                    System.out.println("Thank you for using the Airline Reservation System.");
-                    break;
-                default:
-                    System.out.println("Invalid option. Please try again.");
-                    break;
+                switch (option) {
+                    case 1:
+                        ViewFlights.displayFlight();  
+                        break;
+                    case 2:
+                        BookFlight.bookFlight();  
+                        break;
+                    case 3:
+                        CancelFlight.cancelFlight(); 
+                        break;
+                    case 4:
+                        ViewBookedFlight.viewBookedFlights();  
+                        break;
+                    case 5:
+                        System.out.println("Exiting User Menu. Goodbye!");
+                        return;
+                    default:
+                        System.out.println("Invalid option. Please try again.");
+                }
             }
         } finally {
-            scanner.close(); // Ensure the Scanner is closed to prevent resource leak
+            scanner.close();
         }
     }
 }
