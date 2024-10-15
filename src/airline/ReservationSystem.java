@@ -28,7 +28,7 @@ public class ReservationSystem {
         } else {
             System.out.println("Available Flights:");
             for (Flight flight : flights) {
-                System.out.println(flight);
+                System.out.println(flight); // Ensure Flight class has a meaningful toString()
             }
         }
     }
